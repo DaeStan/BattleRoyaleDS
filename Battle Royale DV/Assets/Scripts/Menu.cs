@@ -138,7 +138,6 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         SetScreen(mainScreen);
     }
 
-
     void UpdateLobbyBrowserUI()
     {
         // disable all room buttons
@@ -166,8 +165,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     }
     GameObject CreateRoomButton()
     {
-        GameObject buttonObj = Instantiate(roomButtonPrefab, roomListContainer.transform)
-       ;
+        Debug.Log("Button Pressed");
+        GameObject buttonObj = Instantiate(roomButtonPrefab, roomListContainer.transform);
         roomButtons.Add(buttonObj);
         return buttonObj;
     }
