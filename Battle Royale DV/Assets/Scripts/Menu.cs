@@ -42,6 +42,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         if (PhotonNetwork.InRoom)
         {
             // go to the lobby 
+            SetScreen(lobbyScreen);
+            UpdateLobbyUI();
             // make the room visible
             PhotonNetwork.CurrentRoom.IsVisible = true;
             PhotonNetwork.CurrentRoom.IsOpen = true;
@@ -147,14 +149,11 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         for (int x = 0; x < roomList.Count; ++x)
         {
             // get or create the button object
-            GameObject button = x >= roomButtons.Count ? CreateRoomButton() : roomButtons
-           [x];
+            GameObject button = x >= roomButtons.Count ? CreateRoomButton() : roomButtons[x];
             button.SetActive(true);
             // set the room name and player count texts
-            button.transform.Find("RoomNameText").GetComponent<TextMeshProUGUI>().text =
-           roomList[x].Name;
-            button.transform.Find("PlayerCountText").GetComponent<TextMeshProUGUI>().text
-            = roomList[x].PlayerCount + " / " + roomList[x].MaxPlayers;
+            button.transform.Find("RoomNameText").GetComponent<TextMeshProUGUI>().text = roomList[x].Name;
+            button.transform.Find("PlayerCountText").GetComponent<TextMeshProUGUI>().text = roomList[x].PlayerCount + " / " + roomList[x].MaxPlayers;
 
             // set the button OnClick event
             Button buttonComp = button.GetComponent<Button>();
