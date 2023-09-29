@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     public void Initialize(Player player)
     {
-        Debug.Log("here playerControler");
         id = player.ActorNumber;
         photonPlayer = player;
 

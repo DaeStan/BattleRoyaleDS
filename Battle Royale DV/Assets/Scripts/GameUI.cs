@@ -26,7 +26,6 @@ public class GameUI : MonoBehaviour
 
     public void Initialize(PlayerController localPlayer)
     {
-        Debug.Log("here");
         player = localPlayer;
         healthBar.maxValue = player.maxHp;
         healthBar.value = player.curHp;
